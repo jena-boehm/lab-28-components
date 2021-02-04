@@ -6,7 +6,7 @@ describe('ArticleList component', () => {
   afterEach(() => cleanup());
   it('renders ArticleList', () => {
     const { asFragment } = render(<ArticleList 
-      title="hello" />);
+      articles={[]} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

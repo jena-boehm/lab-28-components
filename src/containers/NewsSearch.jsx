@@ -24,12 +24,6 @@ export default class NewsSearch extends Component {
         .then(articles => this.setState({ articles }));
     }
 
-    // handleSearch = ({ target }) => {
-    //   searchArticles(target.value)
-    //     .then(articles => this.setState({ articles, state: target.value }));
-    //   console.log(this.state.search);
-    // }
-
     render() {
       const { articles, search } = this.state;
 
