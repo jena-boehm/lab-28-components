@@ -6,12 +6,17 @@ import { getArticles } from '../services/NewsApi';
 export default class NewsSearch extends Component {
     state = {
       articles: [],
-      loading: false
+      loading: false,
+      search: ''
     }
 
     componentDidMount() {
       getArticles()
         .then(articles => this.setState({ articles }));
+    }
+
+    handleChange = ({ target }) => {
+      this.setState({ [target.name]: target.value });
     }
 
     render() {
