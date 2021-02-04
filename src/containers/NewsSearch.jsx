@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ArticleList from '../components/articles/ArticleList';
 import Search from '../components/search/Search';
 import { getArticles } from '../services/NewsApi';
+import { searchArticles } from '../services/searchArticles';
 
 export default class NewsSearch extends Component {
     state = {
@@ -11,20 +12,30 @@ export default class NewsSearch extends Component {
     }
 
     componentDidMount() {
+      this.setState({ loading: true });
+      
       getArticles()
-        .then(articles => this.setState({ articles }));
+        .then(articles => this.setState({ articles, loading: false }));
     }
 
     handleChange = ({ target }) => {
-      this.setState({ [target.name]: target.value });
+      this.setState({ search: target.value });
+      searchArticles(target.value)
+        .then(articles => this.setState({ articles }));
     }
 
+    // handleSearch = ({ target }) => {
+    //   searchArticles(target.value)
+    //     .then(articles => this.setState({ articles, state: target.value }));
+    //   console.log(this.state.search);
+    // }
+
     render() {
-      const { articles } = this.state;
+      const { articles, search } = this.state;
 
       return (
         <div>
-          <Search />
+          <Search search={search} onChange={this.handleChange} />
           <ArticleList articles={articles} />  
         </div>
       );
