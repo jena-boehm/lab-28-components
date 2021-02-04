@@ -5,6 +5,7 @@ const Search = ({ search, onChange }) => (
   <>
     <label htmlFor="search">Search</label>
     <input
+      data-testid="search-results"
       id="search"
       name="search"
       type="search"
