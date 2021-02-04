@@ -8,7 +8,8 @@ describe('Search component', () => {
     const { asFragment } = render(<Search 
       id="search"
       name="search"
-      type="search"/>);
+      type="search"
+      onChange={jest.fn()} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });

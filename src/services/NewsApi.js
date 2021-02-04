@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+import fetch from 'node-fetch';
 const API_KEY = process.env.API_KEY;
 
 export const getArticles = () => {
