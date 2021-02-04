@@ -8,6 +8,7 @@ exports[`Search component renders Search 1`] = `
     Search
   </label>
   <input
+    data-testid="search-results"
     id="search"
     name="search"
     type="search"
